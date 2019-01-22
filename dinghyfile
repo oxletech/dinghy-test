@@ -50,25 +50,27 @@
       ],
       "triggers": []
       "notifications": [
-        "address": "oxletech-bot-test",
-        "level": "pipeline",
-        "message": {
-          "pipeline.complete": {
-            "text": "Deployed ${ parameters.app_name }-${ parameters.sha } to ${ parameters.environment }"
+        {
+          "address": "oxletech-bot-test",
+          "level": "pipeline",
+          "message": {
+            "pipeline.complete": {
+              "text": "Deployed ${ parameters.app_name }-${ parameters.sha } to ${ parameters.environment }"
+            },
+            "pipeline.failed": {
+              "text": "${ parameters.app_name }-${ parameters.sha } to ${ parameters.environment } triggered by ${ trigger.user } has failed."
+            },
+            "pipeline.starting": {
+              "text": "Deploying ${ parameters.app_name }-${ parameters.sha } to ${ parameters.environment }"
+            }
           },
-          "pipeline.failed": {
-            "text": "${ parameters.app_name }-${ parameters.sha } to ${ parameters.environment } triggered by ${ trigger.user } has failed."
-          },
-          "pipeline.starting": {
-            "text": "Deploying ${ parameters.app_name }-${ parameters.sha } to ${ parameters.environment }"
-          }
-        },
-        "type": "slack",
-        "when": [
-          "pipeline.starting",
-          "pipeline.complete",
-          "pipeline.failed"
-        ],
+          "type": "slack",
+          "when": [
+            "pipeline.starting",
+            "pipeline.complete",
+            "pipeline.failed"
+          ]
+        }
       ],
     }
   ]
