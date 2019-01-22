@@ -3,12 +3,11 @@
   "pipelines": [
     {
       "application": "oxletech",
+      "name": "Oxletech Armory Pipeline",
       "keepWaitingPipelines": false,
       "limitConcurrent": true,
       "appConfig": {},
       "expectedArtifacts": [],
-      "notifications": [ ],
-      "name": "Oxletech Armory Pipeline",
       "parameterConfig": [
         {
           "description": "",
@@ -50,6 +49,26 @@
         {{ module "publish_deploy_events_rollbar.stage.module" "requisiteStageRefIds" ["6"] }}
       ],
       "triggers": []
+      "notifications": [
+        "address": "oxletech-bot-test",
+        "level": "pipeline",
+        "message": {
+          "pipeline.complete": {
+            "text": "Deployed ${ parameters.app_name }-${ parameters.sha } to ${ parameters.environment }"
+          },
+          "pipeline.failed": {
+            "text": "${ parameters.app_name }-${ parameters.sha } to ${ parameters.environment } triggered by ${ trigger.user } has failed."
+          },
+          "pipeline.starting": {
+            "text": "Deploying ${ parameters.app_name }-${ parameters.sha } to ${ parameters.environment }"
+          }
+        },
+        "type": "slack",
+        "when": [
+          "pipeline.starting",
+          "pipeline.complete",
+          "pipeline.failed"
+      ],
     }
   ]
 }
