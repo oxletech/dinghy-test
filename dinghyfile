@@ -68,6 +68,7 @@
           "pipeline.starting",
           "pipeline.complete",
           "pipeline.failed"
+        ],
       ],
     }
   ]
