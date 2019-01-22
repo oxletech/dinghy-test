@@ -48,7 +48,7 @@
         {{ module "publish_deploy_events_graphite.stage.module" "requisiteStageRefIds" ["5"] }},
         {{ module "publish_deploy_events_rollbar.stage.module" "requisiteStageRefIds" ["6"] }}
       ],
-      "triggers": []
+      "triggers": [],
       "notifications": [
         {
           "address": "oxletech-bot-test",
@@ -71,7 +71,7 @@
             "pipeline.failed"
           ]
         }
-      ],
+      ]
     }
   ]
 }
