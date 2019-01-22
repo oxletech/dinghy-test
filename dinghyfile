@@ -5,15 +5,11 @@
       "application": "oxletech",
       "keepWaitingPipelines": false,
       "limitConcurrent": true,
-      "name": "Made By Armory Pipeline Templates",
+      "name": "Oxletech Armory Pipeline",
       "stages": [
-        {
-          "name": "Wait",
-          "refId": "1",
-          "requisiteStageRefIds": [],
-          "type": "wait",
-          "waitTime": 10
-        }
+        {{ module "wait.stage.module" }}
+        {{ module "lookup_base_ami_id.stage.module" }}
+        {{ module "bake_ami.stage.module" }}
       ],
       "triggers": []
     }
