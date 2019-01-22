@@ -47,7 +47,7 @@
         {{ module "bake_ami.stage.module" "requisiteStageRefIds" ["3"] }},
         {{ module "deploy-aws-dev.stage.module" "requisiteStageRefIds" ["4"] }},
         {{ module "publish_deploy_events_graphite.stage.module" "requisiteStageRefIds" ["5"] }},
-        {{ module "publish_deploy_events_rollbar.stage.module" "requisiteStageRefIds" ["6"] }},
+        {{ module "publish_deploy_events_rollbar.stage.module" "requisiteStageRefIds" ["6"] }}
       ],
       "triggers": []
     }
