@@ -41,7 +41,7 @@
         }
       ],
       "stages": [
-        {{ module "determine_deployed_app_version.stage.module" "shaLookupUrl" "https://webwonders.0x1e.local/public/status" }},
+        {{ module "determine_deployed_app_version.stage.module" "shaLookupUrl" "webwonders" }},
         {{ module "confirm_deployment.stage.module" "requisiteStageRefIds" ["1"] }},
         {{ module "lookup_base_ami_id.stage.module" "requisiteStageRefIds" ["2"] }},
         {{ module "bake_ami.stage.module" "requisiteStageRefIds" ["3"] }},
