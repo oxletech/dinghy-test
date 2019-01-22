@@ -43,7 +43,8 @@
       "stages": [
         {{ module "wait.stage.module" }},
         {{ module "lookup_base_ami_id.stage.module" }},
-        {{ module "bake_ami.stage.module" }}
+        {{ module "bake_ami.stage.module" }},
+        {{ module deploy.stage.module "requisiteStageRefIds" ["3", "1"] }}
       ],
       "triggers": []
     }
