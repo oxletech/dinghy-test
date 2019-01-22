@@ -5,7 +5,41 @@
       "application": "oxletech",
       "keepWaitingPipelines": false,
       "limitConcurrent": true,
+      "appConfig": {},
+      "expectedArtifacts": [],
+      "notifications": [ ],
       "name": "Oxletech Armory Pipeline",
+      "parameterConfig": [
+        {
+          "description": "",
+          "hasOptions": false,
+          "label": "Artifact SHA to deploy",
+          "name": "sha",
+          "options": [
+            {
+              "value": ""
+            }
+          ],
+          "required": true
+        },
+        {
+          "hasOptions": true,
+          "label": "Environment to deploy to",
+          "name": "environment",
+          "options": [
+            {
+              "value": "development"
+            },
+            {
+              "value": "staging"
+            },
+            {
+              "value": "production"
+            }
+          ],
+          "required": true
+        }
+      ],
       "stages": [
         {{ module "wait.stage.module" }},
         {{ module "lookup_base_ami_id.stage.module" }},
