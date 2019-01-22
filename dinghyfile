@@ -44,7 +44,7 @@
         {{ module "confirm_deployment.stage.module" "requisiteStageRefIds" ["1"] }},
         {{ module "lookup_base_ami_id.stage.module" "requisiteStageRefIds" ["2"] }},
         {{ module "bake_ami.stage.module" "requisiteStageRefIds" ["3"] }},
-        {{ module "deploy-aws-dev.stage.module" "requisiteStageRefIds" ["4"] }},
+        {{ module "deploy-aws-dev.stage.module" "requisiteStageRefIds" ["4"] "ldAppName" "oxletech-cool-app" "iamRole" "development-oxletech-cool-app" "instanceType" "t2.micro" "ldAppNameEc2NameTag" "oxletech-cool-app (development)" }},
         {{ module "publish_deploy_events_graphite.stage.module" "requisiteStageRefIds" ["5"] }},
         {{ module "publish_deploy_events_rollbar.stage.module" "requisiteStageRefIds" ["6"] }}
       ],
